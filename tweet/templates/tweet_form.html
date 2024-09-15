@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+TweetShare - {{ form.instance.pk|yesno:"Edit Tweet,Create Tweet" }}
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <!-- Dynamic Heading for Edit/Create Tweet -->
+  <h1 class="text-center display-4 fw-bold">
+    {% if form.instance.pk %}
+    Edit Tweet
+    {% else %}
+    Create Tweet
+    {% endif %}
+  </h1>
+
+  <!-- Form for Creating/Editing Tweet -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+      <form method="post" enctype="multipart/form-data" class="shadow p-4 rounded" style="background-color: #f9f9f9;">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <!-- Submit Button -->
+        <div class="d-grid gap-2 mt-4">
+          <button class="btn btn-primary btn-lg" type="submit">
+            {% if form.instance.pk %}
+            Update Tweet
+            {% else %}
+            Post Tweet
+            {% endif %}
+          </button>
+        </div>
+      </form>
+
+      <!-- Back Button -->
+      <div class="text-center mt-3">
+        <a href="{% url 'tweet_list' %}" class="btn btn-outline-secondary">Back to Tweets</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

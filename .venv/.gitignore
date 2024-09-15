@@ -1,0 +1,32 @@
+# Python-related
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environment
+env/
+.venv/
+ENV/
+venv/
+
+# Django-related
+db.sqlite3
+*.log
+/media/
+staticfiles/
+*.pyc
+*.DS_Store
+
+# Sensitive Files
+.env
+.env.*
+
+# Migrations (Optional)
+#migrations/
+
+# System-specific
+*.DS_Store
+*.log
+*.swp
